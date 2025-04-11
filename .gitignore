@@ -1,0 +1,13 @@
+# macOS system file
+.DS_Store
+
+# Logs and dumps
+*.log
+*.sql
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# XAMPP/MAMP/etc backup files
+*.bak
