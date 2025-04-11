@@ -1,13 +1,15 @@
-# Use PHP with Apache web server
 FROM php:8.2-apache
 
+# Install PDO MySQL extension (this is all you need!)
+RUN docker-php-ext-install pdo_mysql
 
-# Copy your project files into the Apache root folder
-COPY . /var/www/html
+RUN a2enmod rewrite
 
-# (Optional) Fix file permissions
+WORKDIR /var/www/html
+
+COPY . .
+
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# Expose port 80 (so Render knows where your app is running)
 EXPOSE 80
